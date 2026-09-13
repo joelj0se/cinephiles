@@ -92,8 +92,8 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
+- Noel Joseph George: Worked with Opencv and tested different qr codes
+- Joel Jose: Debugged the code
 - [Name 3]: [Specific contributions]
 
 ---
