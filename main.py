@@ -303,21 +303,17 @@ def run_dramatic_loading_sequence(frame, window_name):
         while time.time() - t_start < step_duration:
             display = base_frame.copy()
 
-            # Center Dialog Box
             cv2.rectangle(display, (bar_x - 30, bar_y - 80), (bar_x + bar_w + 30, bar_y + 80), (25, 25, 25), -1)
             cv2.rectangle(display, (bar_x - 30, bar_y - 80), (bar_x + bar_w + 30, bar_y + 80), (0, 255, 255), 2)
 
-            # Stage Message
             cv2.putText(display, f"// {msg}", (bar_x - 10, bar_y - 35), 
                         cv2.FONT_HERSHEY_SIMPLEX, 0.60, (0, 255, 255), 2)
 
-            # Progress Bar Track & Fill
             cv2.rectangle(display, (bar_x, bar_y), (bar_x + bar_w, bar_y + bar_h), (50, 50, 50), -1)
             fill_w = int(bar_w * progress)
             cv2.rectangle(display, (bar_x, bar_y), (bar_x + fill_w, bar_y + bar_h), (0, 0, 255), -1)
             cv2.rectangle(display, (bar_x, bar_y), (bar_x + bar_w, bar_y + bar_h), (200, 200, 200), 2)
 
-            # Percentage text
             cv2.putText(display, f"{int(progress * 100)}%", (bar_x + bar_w + 10, bar_y + 20),
                         cv2.FONT_HERSHEY_DUPLEX, 0.6, (255, 255, 255), 1)
 
@@ -423,9 +419,17 @@ def create_certificate(data):
 # ==========================================
 
 def main():
-    camera = cv2.VideoCapture(0)
+    # cv2.CAP_DSHOW provides fast hardware camera access on Windows
+    camera = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    if not camera.isOpened():
+        camera = cv2.VideoCapture(0)
+
     camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
+    # Auto-exposure compensation for room lighting
+    camera.set(cv2.CAP_PROP_AUTO_EXPOSURE, 0.75)  # 0.75 or 1 enables automatic exposure
+    camera.set(cv2.CAP_PROP_AUTOFOCUS, 1)
 
     analyzed = False
     result = None
@@ -434,15 +438,29 @@ def main():
     cv2.namedWindow("QR Useless Analyzer", cv2.WINDOW_NORMAL)
     cv2.resizeWindow("QR Useless Analyzer", 960, 720)
 
+    # Contrast booster for low/dim lighting
+    clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
+
     while True:
         ret, frame = camera.read()
         if not ret:
             break
 
+        # Flip frame horizontally so it mirrors naturally
+        frame = cv2.flip(frame, 1)
+
         key = cv2.waitKey(1) & 0xFF
 
         if not analyzed:
-            decoded_objects = zbar_decode(frame)
+            # Preprocess a grayscale copy to cut through glare and poor lighting
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            enhanced = clahe.apply(gray)
+
+            # Try detecting on enhanced contrast first, fallback to raw frame
+            decoded_objects = zbar_decode(enhanced)
+            if not decoded_objects:
+                decoded_objects = zbar_decode(frame)
+
             found = len(decoded_objects) > 0
 
             if found:
