@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # ==========================================
 # ASSET MAPPING (EXPLICIT SUBFOLDER RESOLVER)
 # ==========================================
-#Tutorial
+
 AUDIO_NAMES = {
     "UPI": ["audiogpay.mp3", "gpay.mp3"],
     "WIFI": ["audiowifi.mp3", "wifi.mp3"],
@@ -264,16 +264,16 @@ def analyze_qr(frame, polygon_pts, decoded_str):
 
 
 # ==========================================
-# DRAMATIC LOADING BUFFER
+# EXTENDED DRAMATIC LOADING BUFFER
 # ==========================================
 
 def run_dramatic_loading_sequence(frame, window_name):
     stages = [
-        (0.20, "SCANNING MODULE TIMING TRACKS..."),
-        (0.45, "MEASURING MODULE COVERAGE & BLOCKS..."),
-        (0.70, "CONSULTING CID MOOSA INTELLIGENCE..."),
-        (0.90, "FINALIZING ABSOLUTE ZERO VALUE..."),
-        (1.00, "USELESSNESS CONFIRMED (100%)")
+        (0.18, "SCANNING MODULE TIMING TRACKS...", 0.4),
+        (0.38, "MEASURING MODULE COVERAGE & BLOCKS...", 0.4),
+        (0.68, "CONSULTING CID MOOSA INTELLIGENCE...", 2.2),
+        (0.92, "FINALIZING ABSOLUTE ZERO VALUE...", 0.4),
+        (1.00, "USELESSNESS CONFIRMED (100%)", 0.5)
     ]
 
     h, w = frame.shape[:2]
@@ -286,24 +286,38 @@ def run_dramatic_loading_sequence(frame, window_name):
     bar_x = (w - bar_w) // 2
     bar_y = h // 2
 
-    for progress, msg in stages:
+    for progress, msg, step_duration in stages:
         t_start = time.time()
         play_loading_click()
 
-        while time.time() - t_start < 0.35:
+        if "CID MOOSA" in msg:
+            def _moosa_radar():
+                for f in [600, 750, 900, 1050, 800]:
+                    try:
+                        winsound.Beep(f, 35)
+                        time.sleep(0.08)
+                    except Exception:
+                        pass
+            threading.Thread(target=_moosa_radar, daemon=True).start()
+
+        while time.time() - t_start < step_duration:
             display = base_frame.copy()
 
+            # Center Dialog Box
             cv2.rectangle(display, (bar_x - 30, bar_y - 80), (bar_x + bar_w + 30, bar_y + 80), (25, 25, 25), -1)
             cv2.rectangle(display, (bar_x - 30, bar_y - 80), (bar_x + bar_w + 30, bar_y + 80), (0, 255, 255), 2)
 
+            # Stage Message
             cv2.putText(display, f"// {msg}", (bar_x - 10, bar_y - 35), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.62, (0, 255, 255), 2)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.60, (0, 255, 255), 2)
 
+            # Progress Bar Track & Fill
             cv2.rectangle(display, (bar_x, bar_y), (bar_x + bar_w, bar_y + bar_h), (50, 50, 50), -1)
             fill_w = int(bar_w * progress)
             cv2.rectangle(display, (bar_x, bar_y), (bar_x + fill_w, bar_y + bar_h), (0, 0, 255), -1)
             cv2.rectangle(display, (bar_x, bar_y), (bar_x + bar_w, bar_y + bar_h), (200, 200, 200), 2)
 
+            # Percentage text
             cv2.putText(display, f"{int(progress * 100)}%", (bar_x + bar_w + 10, bar_y + 20),
                         cv2.FONT_HERSHEY_DUPLEX, 0.6, (255, 255, 255), 1)
 
