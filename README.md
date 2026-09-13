@@ -55,8 +55,14 @@ For Software:
 
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+<img width="2720" height="1200" alt="qr_detection_trigger_flow" src="https://github.com/user-attachments/assets/0cbfe2c5-a780-4a0c-a277-3da0c5dd8383" />
+Detection & trigger — The camera feed runs through PyZbar QR detection in a loop; a positive match breaks the loop and fires the target lock and spacebar trigger.
+<img width="2720" height="1760" alt="core_processing_pipeline" src="https://github.com/user-attachments/assets/befc6eea-99f3-4c1f-b748-466c6b446d6b" />
+Core processing — After a theatrical "loading diagnostics" pause, the locked frame is analyzed on four parallel tracks (perspective warp, grid timing/version, module counting, payload classification) that converge into one metrics object.
+<img width="2720" height="1240" alt="output_dispatch_flow" src="https://github.com/user-attachments/assets/19c614ac-2c3a-433f-adf4-685404446116" />
+Output dispatch — The synthesized metrics simultaneously trigger a roast audio clip, a matching meme fetch, and a rendered "Certificate of Uselessness," all of which land together on the final display and auto-saved PNG.
+
+
 
 For Hardware:
 
