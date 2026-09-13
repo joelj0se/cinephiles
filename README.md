@@ -85,8 +85,21 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/1q8osxyY_K3yRHEU2AfwLaXytHUR5tCVn/view?usp=sharing
+Title: QR Code Uselessness Analyzer | Automated Computer Vision & Roast Engine
+
+Description:
+A computer vision project designed to analyze everyday QR codes (UPI, Wi-Fi networks, and Web URLs) and evaluate their real-world necessity—concluding with 100% certainty that they are completely useless.
+
+Built using Python, OpenCV, and PyZbar, the system performs live target tracking, applies a 4-point perspective warp for module-level matrix analysis, runs a dramatic diagnostics buffer, and generates an official satirical "Certificate of Uselessness" paired with contextual audio roasts.
+
+Tech Stack:
+
+Language: Python
+
+Computer Vision & Decoding: OpenCV, PyZbar
+
+Audio & Processing: NumPy, Playsound3, Winsound
 
 # Additional Demos
 [Add any extra demo materials/links]
