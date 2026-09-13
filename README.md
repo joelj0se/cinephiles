@@ -2,7 +2,7 @@
 
 
 
-# [Project Name] 🎯
+# QR Analyzer 🎯
 
 
 ## Basic Details
