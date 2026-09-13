@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # ==========================================
 # ASSET MAPPING (EXPLICIT SUBFOLDER RESOLVER)
 # ==========================================
-
+#Tutorial
 AUDIO_NAMES = {
     "UPI": ["audiogpay.mp3", "gpay.mp3"],
     "WIFI": ["audiowifi.mp3", "wifi.mp3"],
