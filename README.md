@@ -68,6 +68,7 @@ Output dispatch — The synthesized metrics simultaneously trigger a roast audio
 ### Project Demo
 # Video
 https://drive.google.com/file/d/1q8osxyY_K3yRHEU2AfwLaXytHUR5tCVn/view?usp=sharing
+OR FOR HD VIDEO:-https://drive.google.com/file/d/1qqcDNa_1MU5qaI7SBjMmOlO7mxaiXuoN/view?usp=sharing
 Title: QR Code Uselessness Analyzer | Automated Computer Vision & Roast Engine
 
 Description:
