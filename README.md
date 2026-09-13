@@ -2,7 +2,7 @@
 
 
 
-# QR Useless Analyzer 🎯
+# QR Uselessness Analyzer 🎯
 
 ## Basic Details
 ### Team Name: Cinephiles
