@@ -34,11 +34,18 @@ For Hardware:
 
 ### Implementation
 For Software:
+
 # Installation
-[commands]
+```bash
+# Clone the repository
+git clone https://github.com/joelj0se/cinephiles.git
+cd cinephiles
+
+# Install required dependencies
+pip install opencv-python pyzbar numpy playsound3
 
 # Run
-[commands]
+python main.py
 
 ### Project Documentation
 For Software:
