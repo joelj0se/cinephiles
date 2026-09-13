@@ -2,39 +2,35 @@
 
 
 
-# QR Analyzer 🎯
-
+# QR Useless Analyzer 🎯
 
 ## Basic Details
-### Team Name: [Name]
-
+### Team Name: Cinephiles
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Noel Joseph George - Saintgits College of Engineering
+- Member 2: Joel Jose - Saintgits College of Engineering
 
 ### Project Description
-[2-3 lines about what your project does]
+An over-engineered computer vision utility that intercepts everyday QR codes (UPI payments, Wi-Fi networks, URLs), analyzes their exact module matrix anatomy, subjects them to a dramatic deep-diagnostic loading sequence, and officially declares them 100% useless with Malayalam meme dialogues and a downloadable certificate.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People blindly scan QR codes to pay bills, connect to internet hotspots, and visit websites without ever questioning the emotional burden or structural density of the black and white pixel blocks. Nobody was stopping to check if their scanned QR code was fundamentally devoid of cosmic purpose.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+A real-time webcam analyzer that locks onto QR codes, calculates the exact black-to-white block ratios, pauses dramatically to "consult CID Moosa intelligence", plays contextual Malayalam comedy punchline roasts, and generates an official "Certificate of QR Analysis" certifying absolute uselessness.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Languages used: Python 3.14
+- Frameworks used: None
+- Libraries used: OpenCV (`cv2`), PyZbar, NumPy, playsound3, winsound
+- Tools used: Visual Studio Code, Git, GitHub
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- USB / Built-in HD Webcam
+- PC / Laptop Audio Output (Speakers / Headphones)
 
 ### Implementation
 For Software:
