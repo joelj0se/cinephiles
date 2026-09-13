@@ -38,15 +38,21 @@ For Software:
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+*Wi-Fi hotspot network analysis extracting SSID and security protocols alongside grid statistics.*
+<img width="1920" height="1080" alt="Screenshot (354)" src="https://github.com/user-attachments/assets/946c8859-7b3f-42f4-b53c-f22b2eac5691" />
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+
+
+*Website URL decoding with host destination parsing and uselessness certificate generation.*
+<img width="1920" height="1080" alt="Screenshot (353)" src="https://github.com/user-attachments/assets/88a638f1-671f-4209-8cd9-df5ab1597455" />
+
+
+
+*Analysis of a UPI (GPay) payment QR code with extracted payee details, module counts, and embedded roast meme.*
+<img width="1920" height="1080" alt="Screenshot (352)" src="https://github.com/user-attachments/assets/c6450583-e495-481c-8807-0771e3755ef0" />
+
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
